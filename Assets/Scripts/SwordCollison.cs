@@ -8,14 +8,12 @@ public class SwordCollison : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("ENTER");
-        if(transform.localScale.x == 0)
-        {
-            transform.localScale = new Vector3(1, 0, 0);
-        }
-        else
-        {
-            transform.localScale = new Vector3(0, 0, 0);
-        }
+        //Vector3 otherCurrentPosition = other.transform.TransformVector;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("EXIT");
     }
 
     // Start is called before the first frame update
