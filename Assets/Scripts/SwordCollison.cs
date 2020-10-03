@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SwordCollison : MonoBehaviour
 {
+    public Animator anim;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("ENTER");
-        //Vector3 otherCurrentPosition = other.transform.TransformVector;
+        Debug.Log("ENTER " + other.tag);
     }
 
     private void OnTriggerExit2D(Collider2D other)

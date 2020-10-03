@@ -17,7 +17,7 @@ public class PlayerAnimations : MonoBehaviour
     {
         moveSpeed = GameObject.Find("Player").GetComponent<PlayerController>().moveSpeed;
         moveSpeedCurrent = moveSpeed;
-        moveSpeedRolling = moveSpeed * 2f;
+        moveSpeedRolling = moveSpeed * 2.5f;
         health = GameObject.Find("Player").GetComponent<PlayerController>().health;
         Debug.Log(health);
 

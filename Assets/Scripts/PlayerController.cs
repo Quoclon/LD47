@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         moveSpeedCurrent = moveSpeed;
-        moveSpeedRolling = moveSpeed * 2f;
+        moveSpeedRolling = moveSpeed * 2.5f;
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         // Add on to the Player's current Position with a new Transform: Position using values from moveInput x & y
         // Multiply each input by Time.deltaTime to smooth out movement
         //transform.position += new Vector3(moveInput.x, moveInput.y, 0f) * Time.deltaTime * moveSpeedCurrent;
-        theRB.velocity = moveInput * moveSpeed;
+        theRB.velocity = moveInput * moveSpeedCurrent;
 
     }
 }
