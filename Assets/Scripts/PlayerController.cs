@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeedCurrent;
     public float moveSpeedRolling;
     public Vector2 moveInput;
+    public Rigidbody2D theRB;
 
     // Player Stat Variables
     public int health = 100;
@@ -53,7 +54,8 @@ public class PlayerController : MonoBehaviour
 
         // Add on to the Player's current Position with a new Transform: Position using values from moveInput x & y
         // Multiply each input by Time.deltaTime to smooth out movement
-        transform.position += new Vector3(moveInput.x, moveInput.y, 0f) * Time.deltaTime * moveSpeedCurrent;
+        //transform.position += new Vector3(moveInput.x, moveInput.y, 0f) * Time.deltaTime * moveSpeedCurrent;
+        theRB.velocity = moveInput * moveSpeed;
 
     }
 }

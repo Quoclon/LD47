@@ -94,6 +94,22 @@ public class PlayerAnimations : MonoBehaviour
             health -= 50;
             Debug.Log(health);
         }
-        
+
+
+        //*****BOX COLIDERS****//
+
+        //Sword Slash
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("anim_hero_attack"))
+        {
+            GameObject.Find("Sword Slash Collider").GetComponent<CircleCollider2D>().enabled = true;
+            Debug.Log("Sword ON");
+        }
+        else
+        {
+            GameObject.Find("Sword Slash Collider").GetComponent<CircleCollider2D>().enabled = false;
+            Debug.Log("Sword OFF");
+        }
+
+
     }
 }
