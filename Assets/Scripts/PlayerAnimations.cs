@@ -101,15 +101,16 @@ public class PlayerAnimations : MonoBehaviour
         //Sword Slash
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("anim_hero_attack"))
         {
+            // Enable the Collider
             GameObject.Find("Sword Slash Collider").GetComponent<CircleCollider2D>().enabled = true;
-            Debug.Log("Sword ON");
+            
         }
         else
         {
             GameObject.Find("Sword Slash Collider").GetComponent<CircleCollider2D>().enabled = false;
-            Debug.Log("Sword OFF");
+            //Debug.Log("Sword OFF");
         }
 
-
     }
+
 }
