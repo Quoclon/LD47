@@ -5,8 +5,7 @@ using UnityEngine;
 public class SpawnNPC : MonoBehaviour
 {
     private Vector2 screenBounds;
-    private float enemyWidth;
-    private float enemyHeight;
+
 
     public GameObject[] EnemyTypes;
 
@@ -18,10 +17,12 @@ public class SpawnNPC : MonoBehaviour
     }
 
     public void Spawn()
-    {
+    { 
         GameObject enemy = Instantiate(EnemyTypes[0]);
-        enemyWidth = enemy.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-        enemyHeight = enemy.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        float enemyWidth;
+        float enemyHeight;
+        enemyWidth = enemy.GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2;
+        enemyHeight = enemy.GetComponentInChildren<SpriteRenderer>().bounds.size.y / 2;
         Vector3 spawnPos = new Vector3(
             UnityEngine.Random.Range((-screenBounds.x + enemyWidth), (screenBounds.x - enemyWidth)),
             UnityEngine.Random.Range((-screenBounds.y + enemyHeight), screenBounds.y - enemyHeight),

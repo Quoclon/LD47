@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Skeleton_Controller : MonoBehaviour
 {
-    Animator anim;
     Rigidbody2D rb;
+    Skeleton_Anim_Controller anim_controller;
 
     [SerializeField] private float moveTimer;
     private float moveTimerMin = 1.0f;
@@ -28,7 +28,8 @@ public class Skeleton_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
+        anim_controller = GetComponentInChildren<Skeleton_Anim_Controller>();
 
         //Set the move timers
         moveTimer = UnityEngine.Random.Range(moveTimerMin, moveTimerMax+1);
@@ -59,27 +60,6 @@ public class Skeleton_Controller : MonoBehaviour
     }
 
 
-    private void HandleAnimation()
-    {
-        //Idle (NOT USED)
-        if(idleTimerCurrent >= 0 && moveTimerCurrent <= 0)
-        {
-            anim.SetBool("walking", false);
-        }
-
-        //Moving
-        if (moveTimerCurrent >= 0)
-        {
-            anim.SetBool("walking", true);
-        }
-
-        //Attacking
-        if (idleTimerCurrent >= 0 && moveTimerCurrent <= 0)
-        {
-            //anim.SetBool("idle", true);
-        }
-
-    }
 
 
     private void HandleMovement()
@@ -131,7 +111,7 @@ public class Skeleton_Controller : MonoBehaviour
         HandleMovement();
         HandleOrientation();
         //HandleAttack();
-        HandleAnimation();
+        anim_controller.HandleAnimation(idleTimerCurrent, moveTimerCurrent);
     }
 
     
